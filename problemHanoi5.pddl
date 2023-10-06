@@ -5,22 +5,11 @@
     )
 
     (:init
-        (smaller k1 k2)
-        (smaller k1 k3)
-        (smaller k1 k4)
-        (smaller k1 k5)
-
-        (smaller k2 k3)
-        (smaller k2 k4)
-        (smaller k2 k5)
-
-        (smaller k3 k4)
-        (smaller k3 k5)
-
-        (smaller k4 k5)
-
-        (clear-peg z)
-        (clear-peg y)
+        (= (size k1) 1)
+        (= (size k2) 2)
+        (= (size k3) 3)
+        (= (size k4) 4)
+        (= (size k5) 5)
 
         (on-peg k5 x)
         (on-peg k4 x)
@@ -32,9 +21,6 @@
         (on-disc k2 k3)
         (on-disc k3 k4)
         (on-disc k4 k5)
-
-        (top-disc k1)
-
     )
 
     (:goal
@@ -44,11 +30,6 @@
             (on-peg k3 z)
             (on-peg k2 z)
             (on-peg k1 z)
-
-            (on-disc k1 k2)
-            (on-disc k2 k3)
-            (on-disc k3 k4)
-            (on-disc k4 k5)
         )
     )
 )
