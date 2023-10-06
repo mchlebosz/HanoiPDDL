@@ -74,7 +74,7 @@
             )
 
             (on-peg ?disc ?from)
-            (on-peg ?disc ?to)
+            (on-peg ?disc2 ?to)
 
             (smaller ?disc ?disc2)
 

@@ -20,7 +20,10 @@
 
     (:goal
         (and
+            (on-peg k2 z)
             (on-peg k1 z)
+            (on-peg k3 z)
+
         )
     )
 )
