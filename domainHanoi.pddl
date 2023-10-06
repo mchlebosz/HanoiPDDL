@@ -1,8 +1,11 @@
 (define (domain hanoi)
-    (:requirements :negative-preconditions :typing :strips)
+    (:requirements :adl)
 
     (:types
         peg disc
+    )
+    (:constants
+        x y z - peg
     )
 
     (:predicates
@@ -13,9 +16,12 @@
         (smaller ?x ?y - disc)
     )
 
-    (:action przesun-na-pusty-pacholek
+    (:action move-to-empty-peg
         :parameters (?from ?to - peg ?disc ?disc2 - disc) ;?disc is on ?disc2
         :precondition (and
+            (not (= ?from ?to))
+            (not (= ?disc ?disc2))
+
             (clear-peg ?to)
             (top-disc ?disc)
             (on-disc ?disc ?disc2)
@@ -35,9 +41,16 @@
 
         )
     )
-    (:action przesun-ostatni-krazek
-        :parameters (?from ?to - peg ?disc ?disc2 - disc);nothing below ?disc; ?disc2 is top on ?to; ?disc3 cannot be under ?disc
+    (:action move-last-disc
+        :parameters (?from ?to - peg ?disc ?disc2 - disc)
+        ;nothing below ?disc
+        ;a ?disc2 is top on ?to
+        ;a ?disc3 cannot be under ?disc
+
         :precondition (and
+            (not (= ?from ?to))
+            (not (= ?disc ?disc2))
+
             (top-disc ?disc2)
             (top-disc ?disc)
 
@@ -64,9 +77,14 @@
 
         )
     )
-    (:action przesun
+    (:action move
         :parameters (?from ?to - peg ?disc ?disc2 ?disc3 - disc);?disc on top of ?disc2; we place disc on ?disc3
         :precondition (and
+            (not (= ?from ?to))
+            (not (= ?disc ?disc2))
+            (not (= ?disc ?disc3))
+            (not (= ?disc2 ?disc3))
+
             (top-disc ?disc3)
             (on-peg ?disc3 ?to)
 

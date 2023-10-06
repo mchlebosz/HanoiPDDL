@@ -1,7 +1,6 @@
 (define (problem h3)
     (:domain hanoi)
     (:objects
-        x y z - peg
         k1 k2 k3 - disc
     )
 
@@ -29,10 +28,9 @@
             (on-disc k1 k2)
             (on-disc k2 k3)
 
-            (on-peg k1 z)
-            (on-peg k2 z)
             (on-peg k3 z)
-
+            (on-peg k2 z)
+            (on-peg k1 z)
         )
     )
 )

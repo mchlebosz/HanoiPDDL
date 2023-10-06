@@ -1,7 +1,6 @@
 (define (problem h5)
     (:domain hanoi)
     (:objects
-        x y z - peg
         k1 k2 k3 k4 k5 - disc
     )
 
@@ -40,7 +39,12 @@
 
     (:goal
         (and
+            (on-peg k5 z)
+            (on-peg k4 z)
+            (on-peg k3 z)
+            (on-peg k2 z)
             (on-peg k1 z)
+
             (on-disc k1 k2)
             (on-disc k2 k3)
             (on-disc k3 k4)
