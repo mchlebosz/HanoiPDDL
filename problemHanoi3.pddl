@@ -15,13 +15,12 @@
 
         (on-disc k1 k2)
         (on-disc k2 k3)
-
     )
 
     (:goal
         (and
-            (on-peg k2 y)
-            (on-peg k1 y)
+            (on-peg k2 z)
+            (on-peg k1 z)
             (on-peg k3 y)
         )
     )

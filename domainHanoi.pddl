@@ -19,7 +19,7 @@
         ;move ?from ?to. ?disc1 is on ?disc2
         :precondition (and
             (not (= ?from ?to)) ; these are different pegs
-            (not (= ?disc1 ?disc2)) ; these are different discs
+            ; (not (= ?disc1 ?disc2)) ; these are different discs
 
             (not (exists
                     (?disc3 - disc)
@@ -63,7 +63,7 @@
 
         :precondition (and
             (not (= ?from ?to)) ; these are different pegs
-            (not (= ?disc1 ?disc2)) ; these are different discs
+            ; (not (= ?disc1 ?disc2)) ; these are different discs
 
             (not
                 (exists
@@ -113,12 +113,12 @@
     (:action move
         :parameters (?from ?to - peg ?disc1 ?disc2 ?disc3 - disc)
         ; a ?disc1 on top of ?disc2
-        ; we place disc on ?disc3
+        ; we place ?disc1 on ?disc3
         :precondition (and
             (not (= ?from ?to)); these are different pegs
-            (not (= ?disc1 ?disc2)) ; these are different discs
-            (not (= ?disc1 ?disc3)) ; these are different discs
-            (not (= ?disc2 ?disc3)) ; these are different discs
+            ; (not (= ?disc1 ?disc2)) ; these are different discs
+            ; (not (= ?disc1 ?disc3)) ; these are different discs
+            ; (not (= ?disc2 ?disc3)) ; these are different discs
 
             (not
                 (exists
