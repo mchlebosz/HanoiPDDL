@@ -19,9 +19,6 @@
 
         (smaller k4 k5)
 
-        (clear-peg z)
-        (clear-peg y)
-
         (on-peg k5 x)
         (on-peg k4 x)
         (on-peg k3 x)
@@ -32,9 +29,6 @@
         (on-disc k2 k3)
         (on-disc k3 k4)
         (on-disc k4 k5)
-
-        (top-disc k1)
-
     )
 
     (:goal
@@ -44,11 +38,6 @@
             (on-peg k3 z)
             (on-peg k2 z)
             (on-peg k1 z)
-
-            (on-disc k1 k2)
-            (on-disc k2 k3)
-            (on-disc k3 k4)
-            (on-disc k4 k5)
         )
     )
 )

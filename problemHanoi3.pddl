@@ -19,9 +19,9 @@
 
     (:goal
         (and
+            (on-peg k3 z)
             (on-peg k2 z)
             (on-peg k1 z)
-            (on-peg k3 y)
         )
     )
 )
