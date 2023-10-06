@@ -1,6 +1,6 @@
 (define (domain hanoi)
 
-    (:requirements :adl)
+    (:requirements :adl :fluents)
 
     (:types
         peg disc
@@ -12,7 +12,10 @@
     (:predicates
         (on-disc ?x ?y - disc)
         (on-peg ?x - disc ?y - peg)
-        (smaller ?x ?y - disc)
+    )
+
+    (:functions
+        (size ?d - disc)
     )
 
     (:action move-to-disc
@@ -29,14 +32,14 @@
             )
             (not
                 (exists
-                    (?d2 - disc)
-                    (on-disc ?d2 ?disc2)
+                    (?d - disc)
+                    (on-disc ?d ?disc2)
                 )
             )
 
             (on-peg ?disc1 ?from)
             (on-peg ?disc2 ?to)
-            (smaller ?disc1 ?disc2)
+            (< (size ?disc1) (size ?disc2))
         )
         :effect (and
 
@@ -44,9 +47,7 @@
                 (?d - disc)
                 (not(on-disc ?disc1 ?d))
             )
-
             (on-disc ?disc1 ?disc2)
-
             (not (on-peg ?disc1 ?from))
             (on-peg ?disc1 ?to)
 

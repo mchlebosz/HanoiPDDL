@@ -5,9 +5,9 @@
     )
 
     (:init
-        (smaller k1 k2)
-        (smaller k1 k3)
-        (smaller k2 k3)
+        (= (size k1) 1)
+        (= (size k2) 2)
+        (= (size k3) 3)
 
         (on-peg k3 x)
         (on-peg k2 x)
