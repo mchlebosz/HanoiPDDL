@@ -1,18 +1,22 @@
 (define (domain hanoi)
-	(:requirements :adl)
+	(:requirements :adl :numeric-fluents)
 	(:predicates
 		(on-top ?x)
-		(smaller ?x ?y)
 		(on-rod ?x ?y)
 		(on-disc ?x ?y)
+	)
+
+	(:functions
+		(size ?x)
 	)
 
 	; przesuń paczkę na inną paczkę
 	(:action move
 		:parameters (?from ?to ?disc ?disc_from ?disc_to)
 		:precondition (and
-			(smaller ?disc ?disc_to)
-			(smaller ?disc ?disc_from)
+
+			(< (size ?disc) (size ?disc_to))
+			(< (size ?disc) (size ?disc_from))
 
 			(on-top ?disc)
 			(on-top ?disc_to)
